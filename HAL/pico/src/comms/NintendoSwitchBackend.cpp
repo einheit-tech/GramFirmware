@@ -112,14 +112,18 @@ void NintendoSwitchBackend::SendReport() {
     UpdateOutputs();
 
     // Digital outputs
-    _report.y = _outputs.x;
-    _report.b = _outputs.a;
-    _report.a = _outputs.b;
-    _report.x = _outputs.y;
-    _report.l = _outputs.buttonL;
-    _report.r = _outputs.buttonR;
-    _report.zl = _outputs.triggerLDigital;
-    _report.zr = _outputs.triggerRDigital;
+    _report.y = _outputs.y;
+    _report.b = _outputs.b;
+    _report.a = _outputs.a;
+    _report.x = _outputs.x;
+
+    // TODO: This flips R1/R2 and L1/L2 but the game actually sees b0xx L and R as the triggers.
+    // Maybe the pinout needs to change? Unsure.
+    _report.l = _outputs.triggerLDigital;
+    _report.r = _outputs.triggerRDigital;
+    _report.zl = _outputs.buttonL;
+    _report.zr = _outputs.buttonR;
+
     _report.minus = _outputs.select;
     _report.plus = _outputs.start;
     _report.l3 = _outputs.leftStickClick;

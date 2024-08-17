@@ -35,12 +35,6 @@ void UltimateUSB::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs)
         outputs.dpadLeft = inputs.c_left;
         outputs.dpadRight = inputs.c_right;
     }
-
-    // Activate select/home by holding Mod Y
-    if (inputs.mod_y) {
-        outputs.select = inputs.midshield;
-        outputs.home = inputs.start;
-    }
 }
 
 void UltimateUSB::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) {
@@ -267,9 +261,5 @@ void UltimateUSB::UpdateAnalogOutputs(InputState &inputs, OutputState &outputs) 
         }
     }
 
-    // Nunchuk overrides left stick.
-    if (inputs.nunchuk_connected) {
-        outputs.leftStickX = inputs.nunchuk_x;
-        outputs.leftStickY = inputs.nunchuk_y;
-    }
 }
+
