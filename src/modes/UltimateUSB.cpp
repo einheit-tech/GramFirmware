@@ -16,8 +16,8 @@ UltimateUSB::UltimateUSB(socd::SocdType socd_type) {
 }
 
 void UltimateUSB::UpdateDigitalOutputs(InputState &inputs, OutputState &outputs) {
-    outputs.b = inputs.a;
-    outputs.a = inputs.b;
+    outputs.a = inputs.a;
+    outputs.b = inputs.b;
     outputs.x = inputs.x;
     outputs.y = inputs.y;
     outputs.buttonL = inputs.lightshield;
