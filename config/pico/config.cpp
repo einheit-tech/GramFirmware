@@ -108,6 +108,13 @@ void setup() {
                 primary_backend, new B0XXInputViewer(input_sources, input_source_count)
             };
             primary_backend->SetGameMode(new UltimateUSB(socd::SOCD_2IP));
+        } else if (button_holds.b) {
+            backend_count = 2;
+            primary_backend = new XInputBackend(input_sources, input_source_count);
+            backends = new CommunicationBackend *[backend_count] {
+                primary_backend, new B0XXInputViewer(input_sources, input_source_count)
+            };
+            primary_backend->SetGameMode(new Melee20Button(socd::SOCD_2IP, { .crouch_walk_os = false }));
         } else {
             // Default to Switch (detect_console returns NONE for the Switch!)
             NintendoSwitchBackend::RegisterDescriptor();
